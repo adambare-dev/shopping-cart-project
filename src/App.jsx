@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Profile from "./Profile";
 import Navigations from "./Navigations";
 import ProductsList from "./Shopincart/ProductsList";
@@ -8,18 +8,14 @@ import ExpandableSearch from "./ExpandableSearch";
 import OrderSummery from "./OrderSummery";
 
 function App() {
+  const [input, setInput] = useState("");
   return (
     <>
       <div className="min-h-screen text-center flex flex-col justify-between">
         <CartProvider>
-          <Navigations cart={<Cart />} />
-          <ProductsList />
+          <Navigations input={input} setInput={setInput} />
+          <ProductsList input={input} setInput={setInput} />
         </CartProvider>
-
-        <footer>
-          <p>my 20206 profile cards</p>
-          <ExpandableSearch />
-        </footer>
       </div>
     </>
   );

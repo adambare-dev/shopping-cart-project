@@ -28,8 +28,8 @@ function OrderSummery() {
           <small className="font-semibold">${delivery}</small>
         </article>
         <article className="flex justify-between items-center border-t border-slate-200 mt-3">
-          <p className="font-bold">Total</p>
-          <p className="font-bold text-blue-600">${total}</p>
+          <p className="font-bold pt-5 text-lg">Total</p>
+          <p className="font-bold text-blue-600 pt-5 text-lg">${total}</p>
         </article>
       </section>
     </div>

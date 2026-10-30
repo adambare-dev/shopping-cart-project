@@ -21,7 +21,7 @@ function ProductCard({ product }) {
         <p>${product.price}</p>
       </section>
       <button
-        className="bg-blue-500 py-3 px-4 w-full rounded-lg font-bold text-white flex items-center gap-4 mt-6 cursor-pointer"
+        className="bg-blue-600 py-4 px-6 w-full rounded-xl font-bold text-white flex items-center justify-center gap-2 mt-6 cursor-pointer active:scale-95 transition transform duration-200"
         onClick={() => dispatch({ type: "ADD-TO-CART", payLoad: product })}
       >
         <FaShoppingCart />

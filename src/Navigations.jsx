@@ -1,9 +1,15 @@
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "./context/CartProvider";
+import {
+  FaCartShopping,
+  FaBasketShopping,
+  FaGift,
+  FaBoxOpen,
+} from "react-icons/fa6";
 import { useContext, useState } from "react";
 import Cart from "./Shopincart/Cart";
-function Navigations() {
+function Navigations({ input, setInput }) {
   const { state } = useContext(CartContext);
   let totalItems = 0;
   for (const item of state.carts) {
@@ -14,17 +20,22 @@ function Navigations() {
   return (
     <div className="sticky top-0  bg-white-800/20 border-b border-slate-100  backdrop-blur-md p-3 shadow-sm">
       <nav className="flex justify-between items-center">
-        <header>
-          <h3>Ebeye</h3>
+        <header className="flex gap-2 items-center">
+          <button className="bg-slate-500 p-2 rounded-2xl text-white">
+            <FaBasketShopping size={20} />
+          </button>
+          <p className="font-bold text-xl text-blue-500">Shopora</p>
         </header>
         <div className="flex gap-5 items-center justify-between">
           <section className="relative">
-            <FaSearch className="absolute top-1/3 right-1.5 " />
+            <FaSearch className="absolute top-1/3 left-1.5 " />
             <input
               type="text"
               autoFocus
               placeholder="Search products..."
-              className="border border-gray-300 bg-gray-50 focus:bg-white px-4 py-1.5 pr-10 rounded-xl text-sm outline-none transition-all w-48 sm:w-64 shadow-inner"
+              className="border border-gray-300 bg-gray-50 focus:bg-white px-4 py-1.5 pl-10 rounded-xl text-sm outline-none transition-all w-48 sm:w-64 shadow-inner"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
             />
           </section>
 
@@ -34,7 +45,7 @@ function Navigations() {
               className="p-2 rounded-full hover:bg-gray-100 transition-colors"
             >
               <FaShoppingCart
-                className="cursor-pointer text-gray-700  hover:text-blue-500 transform transition duration-200"
+                className="cursor-pointer text-slate-500  hover:text-blue-500 transform transition duration-200"
                 size={24}
               />
             </button>

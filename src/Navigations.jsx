@@ -1,12 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "./context/CartProvider";
-import {
-  FaCartShopping,
-  FaBasketShopping,
-  FaGift,
-  FaBoxOpen,
-} from "react-icons/fa6";
+import { FaStore } from "react-icons/fa6";
 import { useContext, useState } from "react";
 import Cart from "./Shopincart/Cart";
 function Navigations({ input, setInput }) {
@@ -18,22 +13,22 @@ function Navigations({ input, setInput }) {
   const [open, setIsOpen] = useState(false);
 
   return (
-    <div className="sticky top-0  bg-white-800/20 border-b border-slate-100  backdrop-blur-md p-3 shadow-sm">
+    <div className="sticky top-0 z-1000 bg-white-800/20 border-b border-slate-100  backdrop-blur-md p-3 shadow-sm">
       <nav className="flex justify-between items-center">
         <header className="flex gap-2 items-center">
           <button className="bg-slate-500 p-2 rounded-2xl text-white">
-            <FaBasketShopping size={20} />
+            <FaStore size={20} />
           </button>
           <p className="font-bold text-xl text-blue-500">Shopora</p>
         </header>
-        <div className="flex gap-5 items-center justify-between">
+        <div className="flex gap-2 items-center justify-between">
           <section className="relative">
-            <FaSearch className="absolute top-1/3 left-1.5 " />
+            <FaSearch className="absolute top-1/3 left-3 text-gray-500 " />
             <input
               type="text"
               autoFocus
               placeholder="Search products..."
-              className="border border-gray-300 bg-gray-50 focus:bg-white px-4 py-1.5 pl-10 rounded-xl text-sm outline-none transition-all w-48 sm:w-64 shadow-inner"
+              className="border border-gray-300 bg-gray-50 focus:bg-white px-4 py-2 pl-9 rounded-2xl text-sm outline-none transition-all w-48 sm:w-64 shadow-inner"
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />

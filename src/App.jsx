@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import Profile from "./Profile";
+import { useState } from "react";
+
 import Navigations from "./Navigations";
 import ProductsList from "./Shopincart/ProductsList";
 import CartProvider from "./context/CartProvider";
-import Cart from "./Shopincart/Cart";
-import ExpandableSearch from "./ExpandableSearch";
-import OrderSummery from "./OrderSummery";
 
 function App() {
   const [input, setInput] = useState("");

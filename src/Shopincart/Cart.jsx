@@ -33,37 +33,44 @@ function Cart() {
           </div>
         ) : (
           state.carts.map((i) => (
-            <div
-              key={i.id}
-              className="flex justify-between items-center gap-6 bg-slate-100 mt-2 px-2 rounded-lg "
-            >
-              <section className="flex flex-col p-2">
-                <h3 className="font-semibold">{i.name}</h3>
-                <small className="text-blue-500 font-medium text-left">{`$${i.price}`}</small>
-              </section>
-              <article className="flex items-center gap-4">
-                <section className="flex justify-center items-center gap-3 border border-slate-300 shadow-sm rounded-lg px-3 py-1 bg-white">
-                  <FaMinus
-                    className="cursor-pointer"
-                    onClick={() =>
-                      dispatch({ type: "DECREMENT-QUANTITY", payLoad: i })
-                    }
-                  />
-                  <small>Quantity: {i.quantity}</small>
-                  <FaPlus
-                    className="cursor-pointer"
-                    onClick={() =>
-                      dispatch({ type: "INCREMENT-QUANTITY", payLoad: i })
-                    }
-                  />
+            <div key={i.id} className=" bg-slate-100 mt-2 px-2 rounded-lg ">
+              <article className="flex flex-col justify-between  gap-3">
+                <section className="flex justify-between p-2">
+                  <div className="flex flex-col ">
+                    <h3 className="font-semibold">{i.name}</h3>
+                    <small className="text-blue-500 font-medium text-left">{`$${i.price}`}</small>
+                  </div>
+
+                  <button>
+                    <FaTrashAlt
+                      size={19}
+                      className="text-red-500 cursor-pointer flex justify-center"
+                      title={`do you want to remove ${i.name} from your carts`}
+                      onClick={() => deleteItem(i.id)}
+                    />
+                  </button>
                 </section>
 
-                <FaTrashAlt
-                  size={19}
-                  className="text-red-500 cursor-pointer"
-                  title={`do you want to remove ${i.name} from your carts`}
-                  onClick={() => deleteItem(i.id)}
-                />
+                <article className="flex  items-center gap-4 ">
+                  <section className="flex items-center gap-3 border border-slate-300 shadow-sm rounded-lg   bg-white w-full">
+                    <button className="cursor-pointer bg-red-500 grow flex justify-center py-1">
+                      <FaMinus
+                        onClick={() =>
+                          dispatch({ type: "DECREMENT-QUANTITY", payLoad: i })
+                        }
+                      />
+                    </button>
+
+                    <small>{i.quantity}</small>
+                    <button className="grow bg-green-500 flex justify-center py-1 cursor-pointer ">
+                      <FaPlus
+                        onClick={() =>
+                          dispatch({ type: "INCREMENT-QUANTITY", payLoad: i })
+                        }
+                      />
+                    </button>
+                  </section>
+                </article>
               </article>
             </div>
           ))

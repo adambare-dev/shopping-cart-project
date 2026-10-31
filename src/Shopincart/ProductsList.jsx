@@ -16,7 +16,7 @@ function ProductsList({ input }) {
         }
       >
         {filtredItems.length === 0 ? (
-          <p className="mt-40">No Product Found with this Id😓</p>
+          <p className="mt-40">No Products Found😓</p>
         ) : (
           filtredItems.map((product) => (
             <ProductCard key={product.id} product={product} />

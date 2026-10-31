@@ -21,7 +21,7 @@ function OrderSummery() {
 
         <article className="flex justify-between items-center">
           <p className="text-gray-500">SubTotal</p>
-          <small className="font-semibold">${subtotal}</small>
+          <small className="font-semibold">${subtotal.toFixed(1)}</small>
         </article>
         <article className="flex justify-between items-center">
           <p className="text-gray-500"> Delivery fee</p>
@@ -29,7 +29,9 @@ function OrderSummery() {
         </article>
         <article className="flex justify-between items-center border-t border-slate-200 mt-3">
           <p className="font-bold pt-5 text-lg">Total</p>
-          <p className="font-bold text-blue-600 pt-5 text-lg">${total}</p>
+          <p className="font-bold text-blue-600 pt-5 text-lg">
+            ${total.toFixed(1)}
+          </p>
         </article>
       </section>
     </div>

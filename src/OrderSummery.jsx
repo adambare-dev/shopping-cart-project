@@ -35,13 +35,6 @@ function OrderSummery() {
             ${total.toFixed(1)}
           </p>
         </article>
-        <button
-          className="border rounded-lg py-2 px-6 cursor-pointer text-lg w-full max-w-xs active:scale-95 transition-transform my-12 flex justify-center items-center gap-2"
-          onClick={() => navigate("/")}
-        >
-          <h3 className="font-bold text-2xl ">&larr;</h3>
-          Go To Products
-        </button>
       </section>
     </div>
   );

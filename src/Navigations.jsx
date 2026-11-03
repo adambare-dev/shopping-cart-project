@@ -23,21 +23,22 @@ function Navigations({ input, setInput }) {
           </button>
           <p className="font-bold text-xl text-blue-500">Shopora</p>
         </header>
-        <Link to={"details"}>
-          <div className="flex gap-2 items-center justify-between">
-            <section className="relative">
-              <FaSearch className="absolute top-1/3 left-3 text-gray-500 " />
-              <input
-                type="text"
-                autoFocus
-                placeholder="Search products..."
-                className="border border-gray-300 bg-gray-50 focus:bg-white px-4 py-2 pl-9 rounded-2xl text-sm outline-none transition-all w-48 sm:w-64 shadow-inner"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-              />
-            </section>
 
-            <article className="flex relative items-center bg-slate-100 rounded-full">
+        <div className="flex gap-2 items-center justify-between">
+          <section className="relative">
+            <FaSearch className="absolute top-1/3 left-3 text-gray-500 " />
+            <input
+              type="text"
+              autoFocus
+              placeholder="Search products..."
+              className="border border-gray-300 bg-gray-50 focus:bg-white px-4 py-2 pl-9 rounded-2xl text-sm outline-none transition-all w-48 sm:w-64 shadow-inner"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+          </section>
+
+          <article className="flex relative items-center bg-slate-100 rounded-full">
+            <Link to={"details"}>
               <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
                 <FaShoppingCart
                   className="cursor-pointer text-slate-500  hover:text-blue-500 transform transition duration-200"
@@ -52,9 +53,9 @@ function Navigations({ input, setInput }) {
               ) : (
                 ""
               )}
-            </article>
-          </div>
-        </Link>
+            </Link>
+          </article>
+        </div>
       </nav>
     </div>
   );

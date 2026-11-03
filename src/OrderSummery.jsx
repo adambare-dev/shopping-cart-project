@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { CartContext } from "./context/CartProvider";
+import { useNavigate } from "react-router-dom";
 function OrderSummery() {
+  const navigate = useNavigate();
   const { state } = useContext(CartContext);
   let subtotal = 0;
   let totalItems = 0;
@@ -11,8 +13,8 @@ function OrderSummery() {
   const delivery = subtotal > 0 ? 5 : 0;
   const total = delivery + subtotal;
   return (
-    <div className="p-6">
-      <h3 className="font-bold text-2xl">OrderSummery</h3>
+    <div className="p-6 grow">
+      <h3 className="font-bold text-2xl mb-4">Order Summary</h3>
       <section>
         <article className="flex justify-between items-center">
           <p className="text-gray-500">Total items</p>
@@ -33,6 +35,13 @@ function OrderSummery() {
             ${total.toFixed(1)}
           </p>
         </article>
+        <button
+          className="border rounded-lg py-2 px-6 cursor-pointer text-lg w-full max-w-xs active:scale-95 transition-transform my-12 flex justify-center items-center gap-2"
+          onClick={() => navigate("/")}
+        >
+          <h3 className="font-bold text-2xl ">&larr;</h3>
+          Go To Products
+        </button>
       </section>
     </div>
   );

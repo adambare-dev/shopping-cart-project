@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartProvider";
 import { FaPlus, FaMinus, FaTrashAlt, FaShoppingCart } from "react-icons/fa";
-import OrderSummery from "../OrderSummery";
+
 function Cart() {
   const { state, dispatch } = useContext(CartContext);
 
@@ -15,7 +15,7 @@ function Cart() {
 
   return (
     <>
-      <div class="absolute top-18 right-3 p-6 bg-white rounded-lg shadow-lg shadow-gray-500/20 max-h-64 overflow-y-scroll">
+      <div className="grow-2 md:border-r md:border-slate-200">
         <header className="flex items-center gap-6 justify-between mb-4 border-b border-slate-300 pb-3">
           <h2 className="font-bold text-xl">Your Cart</h2>
           <small className="border border-slate-200 shadow-sm rounded-lg px-3 py-1">
@@ -28,7 +28,7 @@ function Cart() {
         </header>
         {state.carts.length === 0 ? (
           <div>
-            <p>You have No Carts Yet</p>
+            <p>Your Cart is Empty</p>
             <small className="text-lg"> 🛒</small>
           </div>
         ) : (
@@ -51,23 +51,25 @@ function Cart() {
                   </button>
                 </section>
 
-                <article className="flex  items-center gap-4 ">
+                <article className="flex  items-center gap-4">
                   <section className="flex items-center gap-3 border border-slate-300 shadow-sm rounded-lg   bg-white w-full">
-                    <button className="cursor-pointer bg-red-500 grow flex justify-center py-1">
-                      <FaMinus
-                        onClick={() =>
-                          dispatch({ type: "DECREMENT-QUANTITY", payLoad: i })
-                        }
-                      />
+                    <button
+                      className="cursor-pointer bg-red-500 grow flex justify-center py-2 text-white"
+                      onClick={() =>
+                        dispatch({ type: "DECREMENT-QUANTITY", payLoad: i })
+                      }
+                    >
+                      <FaMinus />
                     </button>
 
                     <small>{i.quantity}</small>
-                    <button className="grow bg-green-500 flex justify-center py-1 cursor-pointer ">
-                      <FaPlus
-                        onClick={() =>
-                          dispatch({ type: "INCREMENT-QUANTITY", payLoad: i })
-                        }
-                      />
+                    <button
+                      className="grow bg-green-500 flex justify-center cursor-pointer text-white py-2 "
+                      onClick={() =>
+                        dispatch({ type: "INCREMENT-QUANTITY", payLoad: i })
+                      }
+                    >
+                      <FaPlus />
                     </button>
                   </section>
                 </article>
@@ -76,7 +78,6 @@ function Cart() {
           ))
         )}
         <hr className="mt-6 text-slate-200" />
-        <OrderSummery />
       </div>
     </>
   );

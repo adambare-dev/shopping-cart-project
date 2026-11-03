@@ -4,6 +4,8 @@ import { CartContext } from "./context/CartProvider";
 import { FaStore } from "react-icons/fa6";
 import { useContext, useState } from "react";
 import Cart from "./Shopincart/Cart";
+import { Link } from "react-router-dom";
+
 function Navigations({ input, setInput }) {
   const { state } = useContext(CartContext);
   let totalItems = 0;
@@ -13,7 +15,7 @@ function Navigations({ input, setInput }) {
   const [open, setIsOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-1000 bg-white-800/20 border-b border-slate-100  backdrop-blur-md p-3 shadow-sm">
+    <div>
       <nav className="flex justify-between items-center">
         <header className="flex gap-2 items-center">
           <button className="bg-slate-500 p-2 rounded-2xl text-white">
@@ -21,41 +23,39 @@ function Navigations({ input, setInput }) {
           </button>
           <p className="font-bold text-xl text-blue-500">Shopora</p>
         </header>
-        <div className="flex gap-2 items-center justify-between">
-          <section className="relative">
-            <FaSearch className="absolute top-1/3 left-3 text-gray-500 " />
-            <input
-              type="text"
-              autoFocus
-              placeholder="Search products..."
-              className="border border-gray-300 bg-gray-50 focus:bg-white px-4 py-2 pl-9 rounded-2xl text-sm outline-none transition-all w-48 sm:w-64 shadow-inner"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-            />
-          </section>
-
-          <article className="flex relative items-center bg-slate-100 rounded-full">
-            <button
-              onClick={() => setIsOpen((prev) => !prev)}
-              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-            >
-              <FaShoppingCart
-                className="cursor-pointer text-slate-500  hover:text-blue-500 transform transition duration-200"
-                size={24}
+        <Link to={"details"}>
+          <div className="flex gap-2 items-center justify-between">
+            <section className="relative">
+              <FaSearch className="absolute top-1/3 left-3 text-gray-500 " />
+              <input
+                type="text"
+                autoFocus
+                placeholder="Search products..."
+                className="border border-gray-300 bg-gray-50 focus:bg-white px-4 py-2 pl-9 rounded-2xl text-sm outline-none transition-all w-48 sm:w-64 shadow-inner"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
               />
-            </button>
+            </section>
 
-            {totalItems > 0 ? (
-              <small className="absolute -top-2 right-0 font-bold text-md bg-red-600 text-white rounded-full h-5 w-5 flex justify-center items-center">
-                {totalItems}
-              </small>
-            ) : (
-              ""
-            )}
-          </article>
-        </div>
+            <article className="flex relative items-center bg-slate-100 rounded-full">
+              <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                <FaShoppingCart
+                  className="cursor-pointer text-slate-500  hover:text-blue-500 transform transition duration-200"
+                  size={24}
+                />
+              </button>
+
+              {totalItems > 0 ? (
+                <small className="absolute -top-2 right-0 font-bold text-md bg-red-600 text-white rounded-full h-5 w-5 flex justify-center items-center">
+                  {totalItems}
+                </small>
+              ) : (
+                ""
+              )}
+            </article>
+          </div>
+        </Link>
       </nav>
-      {open && <Cart />}
     </div>
   );
 }

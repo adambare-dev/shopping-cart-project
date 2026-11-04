@@ -36,10 +36,15 @@ function Cart() {
               className="w-64 h-64 text-center"
             />
             <h3 className="font-semibold text-xl mt-4">Your Cart is Empty</h3>
-            <p></p>
+            <p className="text-slate-600">
+              Looks like you haven't added any items
+              <br />
+              to the cart😢!
+            </p>
             <button
-              className="border py-2 px-10 rounded-xl mt-7 font-bold bg-purple-600 text-white w-full cursor-pointer"
+              className="border py-2.5 px-10 rounded-3xl mt-7 font-bold bg-purple-700 text-white w-full cursor-pointer shadow-purple-200"
               onClick={() => navigate("/")}
+              title="explore the products"
             >
               Explore Now
             </button>

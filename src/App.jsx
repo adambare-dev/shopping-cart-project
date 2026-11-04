@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-import Navigations from "./Navigations";
 import ProductsList from "./Shopincart/ProductsList";
 import CartProvider from "./context/CartProvider";
 import Footer from "./Footer";
 import LayAout from "./LayAout";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DetailsCard from "./Shopincart/DetailsCard";
 function App() {
   const [input, setInput] = useState("");

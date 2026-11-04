@@ -2,8 +2,8 @@ import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "./context/CartProvider";
 import { FaStore } from "react-icons/fa6";
-import { useContext, useState } from "react";
-import Cart from "./Shopincart/Cart";
+import { useContext } from "react";
+
 import { Link } from "react-router-dom";
 
 function Navigations({ input, setInput }) {
@@ -12,7 +12,6 @@ function Navigations({ input, setInput }) {
   for (const item of state.carts) {
     totalItems = totalItems + item.quantity;
   }
-  const [open, setIsOpen] = useState(false);
 
   return (
     <div>

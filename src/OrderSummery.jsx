@@ -12,7 +12,7 @@ function OrderSummery() {
   const delivery = subtotal > 0 ? 5 : 0;
   const total = delivery + subtotal;
   return (
-    <div className="p-6 grow">
+    <div className="p-6 grow bg-slate-200 rounded-lg">
       <h3 className="font-bold text-2xl mb-4">Order Summary</h3>
       <section>
         <article className="flex justify-between items-center">
@@ -31,7 +31,7 @@ function OrderSummery() {
         <article className="flex justify-between items-center border-t border-slate-200 mt-3">
           <p className="font-bold pt-5 text-lg">Total</p>
           <p className="font-bold text-blue-600 pt-5 text-lg">
-            ${total.toFixed(1)}
+            ${total.toFixed(2)}
           </p>
         </article>
       </section>

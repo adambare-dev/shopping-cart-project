@@ -24,7 +24,7 @@ function ProductCard({ product }) {
 
         <section className="flex justify-between items-center">
           <p className="text-gray-500">Price</p>
-          <p className="font-semibold">${product.price.toFixed(1)}</p>
+          <p className="font-semibold">${product.price.toFixed(2)}</p>
         </section>
       </section>
       <button

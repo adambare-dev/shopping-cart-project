@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "./context/CartProvider";
-import { useNavigate } from "react-router-dom";
+
 function OrderSummery() {
-  const navigate = useNavigate();
   const { state } = useContext(CartContext);
   let subtotal = 0;
   let totalItems = 0;

@@ -10,7 +10,7 @@ function ProductsList({ input }) {
       <h2 className="text-2xl font-bold text-left mb-6">Your Shop</h2>
       <div
         className={
-          filtredItems.length === 1
+          filtredItems.length === 1 || filtredItems.length === 2
             ? "md:w-96 mx-auto"
             : "grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4"
         }

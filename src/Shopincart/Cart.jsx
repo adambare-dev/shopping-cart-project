@@ -36,34 +36,38 @@ function Cart() {
               <section className="flex gap-2 items-center">
                 <img
                   src={i.img}
-                  alt=""
+                  alt={i.name}
                   className="h-20 w-20 object-contain rounded-xl"
                 />
 
                 <p className="font-bold">{i.name}</p>
               </section>
 
-              <div className="flex items-center gap-2">
-                <FaMinus
-                  size={10}
-                  className="cursor-pointer "
+              <div className="flex items-center gap-2  py-0.5 px-4 rounded-lg">
+                <button
                   onClick={() =>
                     dispatch({ type: "DECREMENT-QUANTITY", payLoad: i })
                   }
-                />
-                <p className="border border-slate-300 p-1 rounded-sm w-6 h-6 flex items-center justify-center">
+                >
+                  <FaMinus size={10} className="cursor-pointer" />
+                </button>
+                <p className="border border-slate-300 p-1 px-2 rounded-sm flex items-center justify-center">
                   {i.quantity}
                 </p>
-                <FaPlus
-                  size={10}
+                <button
                   onClick={() =>
                     dispatch({ type: "INCREMENT-QUANTITY", payLoad: i })
                   }
                   className="cursor-pointer "
-                />
+                >
+                  <FaPlus size={10} />
+                </button>
               </div>
               <p className="font-bold">${i.price.toFixed(2)}</p>
-              <button onClick={() => deleteItem(i.id)} className="p-2 ">
+              <button
+                onClick={() => deleteItem(i.id)}
+                className="p-2 hover:bg-slate-100 rounded-lg "
+              >
                 <FaTrashAlt
                   className="text-red-500 cursor-pointer"
                   size={20}

@@ -6,11 +6,11 @@ function ProductCard({ product }) {
   const { dispatch } = useContext(CartContext); // <-- Match the updated lowercase 'dispatch'
 
   return (
-    <div className="bg-white p-6  shadow-lg  rounded-xl hover:scale-95 transition transform duration-300">
+    <div className="bg-white p-6  shadow-lg  rounded-xl hover:scale-95 transition transform duration-500">
       <div>
         <img
           src={product.img}
-          alt=""
+          alt={product.name}
           className="w-full h-48 object-cover rounded-2xl mb-4"
         />
       </div>

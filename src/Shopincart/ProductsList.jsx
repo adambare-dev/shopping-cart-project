@@ -11,7 +11,7 @@ function ProductsList({ input }) {
         className={
           filtredItems.length === 1 || filtredItems.length === 2
             ? "md:w-96 mx-auto"
-            : "grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4"
+            : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         }
       >
         {filtredItems.length === 0 ? (

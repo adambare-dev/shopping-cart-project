@@ -2,7 +2,7 @@ const products = [
   {
     id: 1,
     name: "Fashion Shoes",
-    quantity: 1,
+    quantity: 10000,
     price: 20.55,
     img: "https://activ.eg/cdn/shop/files/FOO-ACTIV-20261115-Navy_2.jpg?v=1793079863",
     size: "Medium",
